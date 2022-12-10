@@ -64,7 +64,6 @@ class Mod:
         if res == None:
             return None
         return res
-    
 
 a = Mod(15,7)
 b = Mod(17,7)
