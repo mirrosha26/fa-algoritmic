@@ -1,21 +1,22 @@
-def merge(first_list, second_list):
+def merge(a:list, b:list):
     return_list = []
     i, j = 0, 0
-    while i < len(first_list) and j < len(second_list):
-        if first_list[i] <= second_list[j]:
-            return_list.append(first_list[i])
+    while i < len(a) and j < len(b):
+        if a[i] <= b[j]:
+            return_list.append(a[i])
             i += 1
         else:
-            return_list.append(second_list[j])
+            return_list.append(b[j])
             j += 1
-    while i < len(first_list):
-        return_list.append(first_list[i])
+    while i < len(a):
+        return_list.append(a[i])
         i += 1
-    while j < len(second_list):
-        return_list.append(second_list[j])
+    while j < len(b):
+        return_list.append(b[j])
         j += 1
     return return_list
 
-list_1 = [1,3,4,6,8,14,45]
-list_2 = [2,6,8,14,46]
-print(merge(list_1, list_2))
+a = [1,3,4,4,6,8,14,45]
+b = [2,6,8,8,14,44,44,46]
+
+print(*merge(a, b))
