@@ -1,4 +1,7 @@
-def flip(pancakes, pk):
+def flip(pancakes,how_sort, pk):
+	#print(pancakes, end =" ")
+	#print(pk+ 1)
+	how_sort.append(pk+ 1)
 	start = 0
 	while start < pk:
 		a = pancakes[start]
@@ -16,16 +19,19 @@ def max_pancake(pancakes, n):
 
 
 def pancake_sort(pancakes, n):
+	how_sort = []
 	curr_size = n
 	while curr_size > 1:
 		mi = max_pancake(arr, curr_size)
 		if mi != curr_size-1:
-			flip(pancakes, mi)
-			flip(pancakes, curr_size-1)
+			if mi != 0:
+				flip(pancakes, how_sort, mi)
+			flip(pancakes, how_sort, curr_size-1)
 		curr_size -= 1
+	return how_sort
+
 
 # тест
 arr = [23, 10, 20, 11, 12, 6, 7]
 n = len(arr)
-pancake_sort(arr, n)
-print(arr)
+print(pancake_sort(arr, n))

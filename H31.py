@@ -3,6 +3,7 @@
 def max_dct(dicts):
     return_dict = {}
     go_dicts = dicts[:]
+
     for a_dict in go_dicts:
             for key, value in a_dict.items():
                 for b_dict in go_dicts:
