@@ -12,10 +12,8 @@ def sum_dct(dicts):
     return_dict = {}
     for this_dict in dicts:
         for key, value in this_dict.items():
-            if key in return_dict:
-                return_dict[key] += value
-            else:
-                return_dict[key] = value
+            return_dict.setdefault(key, 0)
+            return_dict[key] += value
     return return_dict
 
 
