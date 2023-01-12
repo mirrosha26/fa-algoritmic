@@ -1,6 +1,6 @@
 def flip(pancakes,how_sort, pk):
-	#print(pancakes, end =" ")
-	#print(pk+ 1)
+	print(pancakes, end =" ")
+	print(pk+ 1)
 	how_sort.append(pk+ 1)
 	start = 0
 	while start < pk:

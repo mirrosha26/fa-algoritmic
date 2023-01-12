@@ -1,33 +1,22 @@
-
-
 def max_dct(dicts):
     return_dict = {}
-    go_dicts = dicts[:]
-
-    for a_dict in go_dicts:
-            for key, value in a_dict.items():
-                for b_dict in go_dicts:
-                    if b_dict != a_dict:
-                        if key in b_dict:
-                            if value <= b_dict[key]:
-                                return_dict[key] = b_dict[key]
-                        else:
-                            return_dict.setdefault(key, value)
+    for this_dict in dicts:
+        for key, value in this_dict.items():
+            value_t = return_dict.setdefault(key, value)
+            if value_t < value:
+                return_dict[key] = value
     return return_dict
+    
 
 def sum_dct(dicts):
     return_dict = {}
-    go_dicts = dicts[:]
-    for a_dict in go_dicts:
-            for key, value in a_dict.items():
-                value_sum = value
-                for b_dict in go_dicts:
-                    if b_dict != a_dict:
-                        if key in b_dict:
-                                value_sum += b_dict[key]
-                return_dict.setdefault(key, value_sum)
+    for this_dict in dicts:
+        for key, value in this_dict.items():
+            if key in return_dict:
+                return_dict[key] += value
+            else:
+                return_dict[key] = value
     return return_dict
-
 
 
 test = [
@@ -39,4 +28,3 @@ test = [
 print(test)
 print(max_dct(test))
 print(sum_dct(test))
-print(test)
